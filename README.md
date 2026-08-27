@@ -39,12 +39,14 @@ Get the latest installer from the **[releases page](https://github.com/ultrameni
 2. SmartScreen may warn **"Windows protected your PC."** Click **More info → Run anyway**; the installer is unsigned, which is what triggers the warning.
 3. Launch **Transcriptor** from the Start menu.
 
+> **Windows uses your GPU via Vulkan** when graphics drivers are installed (NVIDIA, AMD, or Intel), and falls back to the CPU otherwise. ffmpeg is bundled — no `choco`/`scoop` install needed.
+
 ---
 
 ## ✨ What it does
 
 - **Fully offline.** Everything runs on-device. The only network traffic is an optional, user-initiated model download from HuggingFace.
-- **Accurate on real audio.** Whisper models from `tiny` to `large-v3` (default: `large-v3-turbo`), with GPU acceleration via Metal (Apple Silicon) or CUDA/Vulkan (Windows) and a CPU fallback.
+- **Accurate on real audio.** Whisper models from `tiny` to `large-v3` (default: `large-v3-turbo`), with GPU acceleration via Metal (Apple Silicon) or Vulkan (Windows/Linux — NVIDIA, AMD, and Intel) and a CPU fallback.
 - **Video & audio.** ffmpeg extracts the audio track to a 16 kHz mono WAV; the temp file is always cleaned up, done or cancelled.
 - **Per-file model & language.** Set a default, override per file. Re-run individual segments without reprocessing the whole file.
 - **Custom models.** Bring your own Whisper-format `.bin` model.
