@@ -1,6 +1,6 @@
 # 🎙️ Transcriptor
 
-**Native, 100% offline audio & video transcription — for macOS and Windows.**
+**Native, 100% offline audio & video transcription — for macOS, Windows and Linux.**
 
 Drop a file, pick a model and language, transcribe, review, and export. No cloud, no accounts, no telemetry — your audio never leaves your machine.
 
@@ -17,6 +17,8 @@ Get the latest installer from the **[releases page](https://github.com/ultrameni
 | macOS — Apple Silicon | `Transcriptor_<version>_aarch64.dmg` | macOS 11+, M1/M2/M3/M4 |
 | macOS — Intel | `Transcriptor_<version>_x64.dmg` | macOS 11+, Intel (CPU-only) |
 | Windows | `Transcriptor_<version>_x64-setup.exe` or `_x64_en-US.msi` | Windows 10/11, 64-bit |
+| Linux — any distro | `Transcriptor_<version>_x86_64.AppImage` | x64, glibc 2.35+ (Ubuntu 22.04, Debian 12, Fedora 36 or newer) |
+| Linux — Debian/Ubuntu | `Transcriptor_<version>_amd64.deb` | x64, Ubuntu 22.04 / Debian 12 or newer |
 
 ---
 
@@ -40,6 +42,28 @@ Get the latest installer from the **[releases page](https://github.com/ultrameni
 3. Launch **Transcriptor** from the Start menu.
 
 > **Windows uses your GPU via Vulkan** when graphics drivers are installed (NVIDIA, AMD, or Intel), and falls back to the CPU otherwise. ffmpeg is bundled — no `choco`/`scoop` install needed.
+
+### Linux
+
+**AppImage** (any distro, updates itself):
+
+1. Download `Transcriptor_<version>_x86_64.AppImage`.
+2. Make it executable and run it:
+   ```bash
+   chmod +x Transcriptor_*_x86_64.AppImage
+   ./Transcriptor_*_x86_64.AppImage
+   ```
+   On Ubuntu 22.04+ an AppImage needs FUSE 2 — if it won't start, run `sudo apt install libfuse2` (`libfuse2t64` on 24.04+).
+
+**Debian/Ubuntu** (`.deb`):
+
+```bash
+sudo apt install ./Transcriptor_*_amd64.deb
+```
+
+Then launch **Transcriptor** from your app menu. The `.deb` doesn't update itself — install the new one over it.
+
+> **Linux uses your GPU via Vulkan** when Mesa or NVIDIA drivers are installed, and falls back to the CPU otherwise. ffmpeg is bundled.
 
 ---
 
@@ -65,7 +89,7 @@ No cloud, no accounts, no telemetry, no analytics. Your audio, transcripts, and 
 
 ## Updates
 
-Transcriptor checks this repository for new versions and can update itself in place. Only the current release is kept here; older builds are removed.
+Transcriptor checks this repository for new versions and can update itself in place (on Linux, the AppImage does; a `.deb` install is updated by installing the new `.deb`). Only the current release is kept here; older builds are removed.
 
 ---
 
